@@ -26,7 +26,7 @@ body
 
             div(class="show-det-buttons-block")
                 form(action=`http://localhost:3000/configure/users/${user.id}`, method="post",class="show-det-buttons-block")
-                    button(type="submit", name="del", class="bttn-link show-det-button") Delete
+                    button(type="submit", name="del", value="Delete", class="bttn-link show-det-button") Delete
                     if user.enabled
                         button(type="submit", name="disable",class="bttn-link show-det-button", value="Disable") Disable
                     else
