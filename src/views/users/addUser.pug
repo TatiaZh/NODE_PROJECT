@@ -1,0 +1,21 @@
+include ../includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 Add User
+        form(action="", method="post", class="form")
+                label(class="label") First Name: *
+                    input(type="text", name="fName", placeholder="First Name", required, class="input")
+                label(class="label") Last Name: *
+                    input(type="text", name="lName", placeholder="Last Name", required,class="input")
+                label(class="label") Id: *
+                    input(type="text", name="id", placeholder="id", required,class="input") 
+                    //- only number regex
+                label(class="label") Father's Name:
+                    input(type="text", name="father", placeholder="Father's Name",class="input")
+                label(class="label") Date of birth:
+                    input(type="date" name="bDay" placeholder="Date of Birth",class="input")
+                
+                button(type="submit", class="bttn-link frm-bttn-link") Save User
+        
+        include ../includes/footer.pug

@@ -1,0 +1,38 @@
+include ../includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 User Details
+        div(class="info")
+            p(class="p-label") First Name: 
+                span(class="detail")= user.fName
+            p(class="p-label") Last Name: 
+                span(class="detail")= user.lName
+            p(class="p-label") id: 
+                span(class="detail")= user.id
+            p(class="p-label") Father's Name: 
+                span(class="detail")= user.father
+            p(class="p-label") Date of Birth: 
+                span(class="detail")= user.bDay
+            p(class="p-label") Active: 
+                span(class="detail")= user.enabled
+            if user.cars.length
+                ul(class="p-label list")
+                    p Cars:
+                    each car in user.cars
+                        if car.enabled
+                            li(class="detail list-detail")
+                                a(href=`/cars/${car.VIN}`, class="link") #{car.brand} #{car.model}
+
+            div(class="show-det-buttons-block")
+                form(action=`http://localhost:3000/configure/users/${user.id}`, method="post",class="show-det-buttons-block")
+                    button(type="submit", name="del", class="bttn-link show-det-button") Delete
+                    if user.enabled
+                        button(type="submit", name="disable",class="bttn-link show-det-button", value="Disable") Disable
+                    else
+                        button(type="submit", name="enable",class="bttn-link show-det-button", value="Enable") Enable
+                
+                a(href=`/users/${user.id}/edit`, class="bttn-link show-det-button") Edit
+                a(href=`/`, class="bttn-link show-det-button") OK
+
+        include ../includes/footer.pug

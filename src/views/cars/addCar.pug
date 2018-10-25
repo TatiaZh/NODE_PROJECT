@@ -1,0 +1,30 @@
+include ../includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 Add Car
+        form(action="", method="post",class="form")
+            label(class="label") Brand:
+                input(type="text", name="brand", placeholder="Brand",class="input")
+            label(class="label") Model:
+                input(type="text", name="model", placeholder="Model",class="input")
+            label(class="label") VIN: *
+                input(type="text", name="VIN", placeholder="VIN", required,class="input")
+            label(class="label") Number: *
+                input(type="text", name="number", placeholder="Number", required,class="input") 
+                //- only number regex
+            label(class="label") Color:
+                input(type="text" name="color" placeholder="Color",class="input")
+            label(class="label") Production Year:
+                input(type="text" name="year" placeholder="Production Year",class="input")
+            label(class="label") Owner:
+                div(class="input car-select")
+                    select(name="owner",required,class="input")
+                        each user in usersDB
+                            if user.enabled
+                                option(value=`${user.fName} ${user.lName}`) #{user.fName} #{user.lName}
+                    a(href="/users/add", class="link car-select-link") Add New
+            
+            button(type="submit", class="bttn-link frm-bttn-link") Save car
+        
+        include ../includes/footer.pug

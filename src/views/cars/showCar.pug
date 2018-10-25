@@ -1,0 +1,43 @@
+include ../includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 Car Details
+        div(class="info")
+            p(class="p-label") Brand: 
+                span(class="detail")= car.brand
+            p(class="p-label") Model: 
+                span(class="detail")=car.model
+            p(class="p-label") VIN: 
+                span(class="detail")= car.VIN
+            p(class="p-label") Number: 
+                span(class="detail")= car.number
+            p(class="p-label") Color: 
+                span(class="detail")= car.color
+            p(class="p-label") Production Year: 
+                span(class="detail")= car.year
+            p(class="p-label") Owner: 
+                span(class="detail") 
+                    a(href=`/users/${car.owner.id}`, class="link") #{car.owner.fName} #{car.owner.lName}
+            p(class="p-label") Active: 
+                span(class="detail")= car.enabled
+            if car.prevOwners.length
+                ul(class="p-label list") 
+                    p Previous Owners:
+                    each owner in car.prevOwners
+                        if owner.enabled
+                            li(class="detail list-detail")
+                                a(href=`/users/${owner.id}`, class="link") #{owner.fName} #{owner.lName}
+
+            div(class="show-det-buttons-block")
+                form(action=`http://localhost:3000/configure/cars/${car.VIN}`, method="post",class="show-det-buttons-block")
+                    button(type="submit", name="del", class="bttn-link show-det-button") Delete
+                    if car.enabled
+                        button(type="submit", name="disable",class="bttn-link show-det-button", value="Disable") Disable
+                    else
+                        button(type="submit", name="enable",class="bttn-link show-det-button", value="Enable") Enable
+                
+                a(href=`/cars/${car.VIN}/edit`, class="bttn-link show-det-button") Edit
+                a(href=`/`, class="bttn-link show-det-button") OK
+
+        include ../includes/footer.pug

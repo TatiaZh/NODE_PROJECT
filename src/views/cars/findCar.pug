@@ -1,0 +1,19 @@
+include ../includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 Find Car
+        form(action="", method="post", class="form")
+            label(class="label") VIN:
+                input(type="text", name="VIN", placeholder="VIN",class="input") 
+                //- only number regex
+            label(class="label") Number:
+                input(type="text", name="number", placeholder="Number",class="input")
+            label(class="label") Brand:
+                input(type="text", name="brand", placeholder="Brand",class="input")
+            label(class="label") Model:
+                input(type="text", name="model", placeholder="Model",class="input")
+            
+            button(type="submit", class="bttn-link frm-bttn-link") Search
+
+        include ../includes/footer.pug

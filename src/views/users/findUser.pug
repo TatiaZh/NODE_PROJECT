@@ -1,0 +1,17 @@
+include ../includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 Find User
+        form(action="", method="post", class="form")
+                label(class="label") Id:
+                    input(type="text", name="id", placeholder="id",class="input") 
+                    //- only number regex
+                label(class="label") First Name:
+                    input(type="text", name="fName", placeholder="First Name",class="input")
+                label(class="label") Last Name:
+                    input(type="text", name="lName", placeholder="Last Name",class="input")
+                
+                button(type="submit", class="bttn-link frm-bttn-link") Search
+        
+        include ../includes/footer.pug

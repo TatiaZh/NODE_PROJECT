@@ -1,0 +1,14 @@
+include ./includes/header.pug
+body
+    div(class="wrapper")
+        div(class="titles")
+            h1 Welcome to the database
+            h2 Choose an option
+
+        div(class="main-links")
+            a(href="/users/add", class="bttn-link") Add User
+            a(href="/users/find", class="bttn-link") Find User
+            a(href="/cars/add", class="bttn-link") Add Car
+            a(href="/cars/find", class="bttn-link") Find Car
+        
+        include ./includes/footer.pug
