@@ -17,8 +17,9 @@ const Car = require('./models/Car');
 const usersDB = [];
 const carsDB = [];
 
-const user1 = new User("Tatia", "Zhodurishvili", "20001068024", "Levani", "1998-10-04");
+const user1 = new User("Hermione", "Granger", "98765432100", "John", "1979-09-19");
 const user2 = new User("Harry", "Potter", "12345678912", "James", "1980-07-31");
+const user2 = new User("Ron", "Weasley", "32165498711", "Arthur", "1980-03-01");
 const car1 = new Car("BMW", 'M4', "1HGBH41JXMN109186", "OO-448-OO", "Gray", "2016", user2);
 user2.cars.push(car1)
 usersDB.push(user1);
